@@ -74,7 +74,7 @@
 
 .project-tags span {
   font-size: 0.8rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--tag-bg);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   color: var(--text-secondary);

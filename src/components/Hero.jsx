@@ -1,31 +1,39 @@
 import React from 'react';
-import { Download, Mail } from 'lucide-react';
-import { personalInfo } from '../data';
 import './Hero.css';
 
 const Hero = () => {
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="hero">
       <div className="hero-background">
-         <img src={`${import.meta.env.BASE_URL}images/main.PNG`} alt="Background" />
-         <div className="hero-overlay"></div>
+        <img src={`${import.meta.env.BASE_URL}images/main.PNG`} alt="Background" />
       </div>
       
+      <div className="hero-location">based in India.</div>
+
       <div className="container hero-container">
         <div className="hero-content">
-          <span className="hero-subtitle">HELLO, I'M</span>
-          <h1 className="hero-title">{personalInfo.name}</h1>
-          <p className="hero-tagline">{personalInfo.tagline}</p>
-          <div className="hero-actions">
-            <a href="#projects" className="btn btn-primary">
-              VIEW PROJECTS
-            </a>
-            <a href={`${import.meta.env.BASE_URL}resume.pdf`} className="btn btn-secondary" download>
-              <Download size={18} /> DOWNLOAD RESUME
-            </a>
-            <a href="#contact" className="btn btn-outline">
-              <Mail size={18} /> CONTACT ME
-            </a>
+          <p className="hero-intro">
+            Hi, I'm Ajaz. AI & Machine Learning Engineer building intelligent systems.
+          </p>
+          
+          <h1 className="hero-headline">
+            <span className="bold">Artificial intelligence</span>
+            <span className="outline">& machine learning</span>
+          </h1>
+          
+          <div className="hero-btns-wrapper">
+             <div className="hero-btns">
+                <button className="btn btn-primary" onClick={scrollToContact}>
+                  You need a AI engineer
+                </button>
+                <button className="btn btn-secondary" onClick={scrollToContact}>
+                  You need a ML expert
+                </button>
+             </div>
           </div>
         </div>
       </div>

@@ -1,44 +1,24 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React from 'react';
+import { Sun, Moon } from 'lucide-react';
 import './Header.css';
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Volunteering', href: '#volunteering' },
-    { name: 'Contact', href: '#contact' },
-    { name: 'Resume', href: '/resume.pdf', download: true },
-  ];
-
+const Header = ({ theme, toggleTheme }) => {
   return (
     <header className="header">
       <div className="container header-container">
         <div className="logo">
           Ajaz<span>.</span>
         </div>
-
-        <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="nav-link"
-              onClick={() => setIsOpen(false)}
-              download={link.download}
-            >
-              {link.name}
-            </a>
-          ))}
+        <nav className="nav-menu">
+          <a href="#projects" className="nav-link">Projects</a>
+          <a href="#volunteering" className="nav-link">Photos</a>
+          <a href="#about" className="nav-link">About</a>
         </nav>
-
-        <div className="mobile-toggle" onClick={toggleMenu}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        <div className="header-actions">
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
+          <a href="mailto:hello@ajaz.com" className="btn-contact">hello@ajaz.com</a>
         </div>
       </div>
     </header>

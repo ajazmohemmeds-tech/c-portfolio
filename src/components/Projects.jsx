@@ -37,8 +37,8 @@ const Projects = () => {
                    <strong>Outcome:</strong> {project.outcome}
                 </div>
                 <div className="project-links">
-                  <a href="#" className="link-btn"><Github size={16} /> Code</a>
-                  <a href="#" className="link-btn"><ExternalLink size={16} /> Demo</a>
+                  <a href={project.githubLink || "#"} target={project.githubLink ? "_blank" : undefined} rel="noopener noreferrer" className="link-btn"><Github size={16} /> Code</a>
+                  <a href={project.demoLink || "#"} target={project.demoLink ? "_blank" : undefined} rel="noopener noreferrer" className="link-btn"><ExternalLink size={16} /> Demo</a>
                 </div>
               </div>
             </div>

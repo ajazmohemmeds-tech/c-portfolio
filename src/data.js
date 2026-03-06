@@ -6,7 +6,6 @@ export const personalInfo = {
   location: "Bangalore",
   linkedin: "https://www.linkedin.com/in/ajaz-mohemmed-12581727a",
   github: "https://github.com/ajazmohemmeds-tech",
-  instagram: "https://www.instagram.com/__.ajxz?igsh=MXI4MXI2Z3Q5aHRxYw%3D%3D&utm_source=qr",
   education: [
     {
       institution: "CHRIST (Deemed to be University), Bangalore",
@@ -42,7 +41,7 @@ export const experience = [
   },
   {
     company: "TrizLabs",
-    role: "Intern",
+    role: "Research Intern",
     period: "06/2024 – 09/2024",
     type: "On-site",
     description: [
@@ -64,12 +63,14 @@ export const projects = [
     image: "images/voice-assistant.png"
   },
   {
-    title: "AI Model for Food Recognition",
-    description: "Machine learning model capable of identifying and classifying food items from images with over 90% accuracy.",
-    tech: ["CNN", "Python", "Deep Learning"],
+    title: "Business Intelligence Agent",
+    description: "AI agent that can answer founder-level business intelligence queries by integrating with monday.com boards containing work orders and deals data.",
+    tech: ["AI Agent", "monday.com API", "NLP", "Python", "Data Integration"],
     role: "Developer",
-    outcome: "Achieved 95% visual feature learning and 85% better generalization across lighting conditions.",
-    image: "images/food-recognition.png"
+    outcome: "Streamlined business intelligence querying for immediate data insights.",
+    image: "images/bi-agent.png",
+    demoLink: "https://monday-bi-agent-nlp9.onrender.com",
+    githubLink: "#"
   }
 ];
 

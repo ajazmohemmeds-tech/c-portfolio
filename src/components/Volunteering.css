@@ -1,63 +1,97 @@
 .volunteering-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: 4rem;
+  margin-top: 3rem;
+}
+
+.volunteering-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .vol-item {
-  background-color: var(--bg-card);
   padding: 1.5rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
-  border-left: 4px solid var(--accent);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.vol-item:hover {
+  transform: translateX(10px);
+  border-color: var(--text-primary);
 }
 
 .vol-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
 }
 
 .vol-header h3 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--text-primary);
 }
 
 .vol-org {
   font-size: 0.9rem;
-  color: var(--accent);
-  background: rgba(45, 212, 191, 0.1);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
 .vol-item p {
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  font-size: 1rem;
+  line-height: 1.6;
 }
 
-.media-gallery h3 {
-  font-size: 1.5rem;
+/* Gallery Styles */
+.media-gallery {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1.5rem;
-  text-align: center;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  margin-bottom: 1rem;
+  transition: all 0.5s ease;
+}
+
+.gallery-grid.expanded {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .gallery-item {
-  aspect-ratio: 4/3;
-  background-color: #000;
-  border-radius: 0.5rem;
+  aspect-ratio: 1;
+  border-radius: 0.75rem;
   overflow: hidden;
   position: relative;
+  background: var(--bg-secondary);
+  cursor: pointer;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.1);
 }
 
 .gallery-placeholder {
@@ -67,30 +101,82 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255,255,255,0.05);
-  color: var(--text-secondary);
   gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+/* Minimal See More Arrow */
+.see-more {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.see-more:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-style: solid;
+  transform: scale(1.05);
+}
+
+.see-more-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-close-gallery {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-close-gallery:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
 }
 
 .gallery-note {
+  margin-top: 1.5rem;
   font-size: 0.85rem;
   color: var(--text-secondary);
-  text-align: center;
   font-style: italic;
+  text-align: center;
 }
 
-@media (max-width: 968px) {
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 992px) {
   .volunteering-content {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 }
-.gallery-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
 
-.gallery-item:hover .gallery-img {
-  transform: scale(1.05);
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid.expanded {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { personalInfo } from '../data';
-import { Linkedin, Github, Mail, Instagram } from 'lucide-react';
+import { Linkedin, Github, Mail } from 'lucide-react';
 import './SocialSidebar.css';
 
 const SocialSidebar = () => {
@@ -13,11 +13,6 @@ const SocialSidebar = () => {
       <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="social-link">
         <Github size={20} />
       </a>
-      {personalInfo.instagram && (
-        <a href={personalInfo.instagram} target="_blank" rel="noopener noreferrer" className="social-link">
-          <Instagram size={20} />
-        </a>
-      )}
       <a href={`mailto:${personalInfo.email}`} className="social-link">
         <Mail size={20} />
       </a>

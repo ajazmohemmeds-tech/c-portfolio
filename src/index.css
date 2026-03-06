@@ -1,158 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --bg-dark: #030712; /* Deep Blue-Black */
-  --bg-card: rgba(17, 24, 39, 0.7); /* Glassy card */
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --accent: #06b6d4; /* Cyan/Teal Glow */
-  --accent-hover: #0891b2;
-  --border: rgba(255, 255, 255, 0.1);
-  --glow: 0 0 20px rgba(6, 182, 212, 0.3);
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9f9f9;
+  --bg-card: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --accent: #000000;
+  --border: #eeeeee;
+  --font-main: 'Inter', sans-serif;
+  --header-bg: rgba(255, 255, 255, 0.8);
+  --tag-bg: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-card: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent: #ffffff;
+  --border: #222222;
+  --header-bg: rgba(10, 10, 10, 0.8);
+  --tag-bg: rgba(255, 255, 255, 0.05);
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--bg-dark);
+  font-family: var(--font-main);
+  background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
-  /* Complex background matching Cyberpunk/Glow reference */
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(3, 7, 18, 1) 100%);
-  background-attachment: fixed;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  letter-spacing: -0.02em;
-  text-transform: none; /* Reset uppercase from previous themes */
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-family: inherit;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 .section {
-  padding: 8rem 0;
-  position: relative;
-  border-bottom: none; /* Remove heavy borders from industrial themes */
-}
-
-/* Subtle divider glows */
-.section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  padding: 6rem 0;
 }
 
 .section-title {
   font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 5rem;
-  text-align: center;
-  position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
-  border: none;
-  padding: 0;
-  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 4rem;
+  text-align: left;
 }
 
-.section-title span {
-  color: var(--accent);
-  text-shadow: var(--glow);
-  display: inline;
-  font-size: inherit;
-  margin: 0;
-  font-weight: inherit;
-  letter-spacing: inherit;
+h1, h2, h3, h4 {
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
-/* Universal Card Styles for Glassmorphism */
-.project-card, .experience-card, .vol-item, .cert-card, .skill-category, .research-card, .contact-item .icon-box {
-  background: var(--bg-card) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border) !important;
-  border-radius: 12px !important; /* Restore rounded corners */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 1.5rem !important; /* Standard padding */
-  transition: all 0.3s ease;
-}
-
-/* Remove corner markers from previous theme */
-.project-card::after, .experience-card::after, .cert-card::after {
-  display: none;
-}
-
-.project-card:hover, .experience-card:hover, .cert-card:hover, .social-link:hover {
-  border-color: var(--accent) !important;
-  box-shadow: var(--glow) !important;
-  transform: translateY(-5px);
-  padding-left: 1.5rem !important; /* Reset editorial hover padding */
-}
-
-.btn {
-  border-radius: 6px !important; /* Rounded buttons */
-  text-transform: none;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  padding: 0.75rem 1.5rem !important;
-  border: 1px solid transparent !important;
-}
-
-.btn-primary {
-  background-color: var(--accent) !important;
-  color: #fff !important;
-  box-shadow: var(--glow);
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-hover) !important;
-}
-
-.btn-secondary {
-  border: 1px solid var(--border) !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-}
-
-.btn-secondary:hover {
-  border-color: var(--text-primary) !important;
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2.25rem;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
 }
