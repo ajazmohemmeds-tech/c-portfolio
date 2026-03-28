@@ -90,37 +90,65 @@
 }
 
 .contact-socials-section {
-  padding: 3rem;
-  border-right: none;
+  padding: 8rem 2rem;
+  border-top: 1px solid var(--border);
 }
 
-.socials-list {
-  margin-top: 2rem;
+.socials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+}
+
+.social-column {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 2rem;
 }
 
-.social-row {
+.social-link {
   display: flex;
-  gap: 1rem;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.social-platform {
-  color: rgba(255, 255, 255, 0.4);
-  width: 100px;
-}
-
-.social-row a {
+  align-items: center;
+  gap: 1.5rem;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  font-weight: 800;
   color: var(--text-primary);
   text-decoration: none;
-  transition: opacity 0.3s;
+  line-height: 1;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: -0.02em;
 }
 
-.social-row a:hover {
-  opacity: 0.7;
+.social-arrow {
+  width: clamp(1rem, 2.5vw, 2rem);
+  height: clamp(1rem, 2.5vw, 2rem);
+  position: relative;
+  display: inline-block;
+}
+
+.social-arrow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: clamp(0.4rem, 1vw, 0.8rem) 0 clamp(0.4rem, 1vw, 0.8rem) clamp(0.7rem, 1.8vw, 1.4rem);
+  border-color: transparent transparent transparent #FF3D00;
+  transition: all 0.4s ease;
+}
+
+.social-link:hover {
+  transform: translateX(1.5rem);
+  color: #FF3D00;
+}
+
+.social-link:hover .social-arrow::before {
+  border-color: transparent transparent transparent white;
+  transform: translateY(-50%) scale(1.2);
 }
 
 .status-card {
@@ -166,6 +194,16 @@
 }
 
 @media (max-width: 768px) {
+  .contact-socials-section {
+    padding: 6rem 1.5rem;
+  }
+  .socials-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .social-link {
+    font-size: 3rem;
+  }
   .contact-main-grid {
     grid-template-columns: 1fr;
   }
@@ -174,12 +212,5 @@
   }
   .contact-grid-item:nth-child(n+2) {
     border-top: 1px solid var(--border);
-  }
-  .contact-footer-grid {
-    grid-template-columns: 1fr;
-  }
-  .contact-socials-section {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
   }
 }

@@ -60,19 +60,28 @@ const Contact = () => {
 
         <div className="contact-footer-grid">
           <div className="contact-socials-section">
-            <span className="contact-label">SOCIALS</span>
-            <div className="socials-list">
-              <div className="social-row">
-                <span className="social-platform">LINKEDIN:</span>
-                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">/AJAZ-MOHEMMED-S</a>
+            <div className="socials-grid">
+              <div className="social-column">
+                <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <span className="social-arrow"></span> Dribbble
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <span className="social-arrow"></span> Youtube
+                </a>
+                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
+                  <span className="social-arrow"></span> Linkedin
+                </a>
               </div>
-              <div className="social-row">
-                <span className="social-platform">GITHUB:</span>
-                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">/AJAZMOHEMMEDS-TECH</a>
-              </div>
-              <div className="social-row">
-                <span className="social-platform">EMAIL:</span>
-                <a href={`mailto:hello@ajaz.com`}>HELLO@AJAZ.COM</a>
+              <div className="social-column">
+                <a href={personalInfo.instagram} target="_blank" rel="noopener noreferrer" className="social-link">
+                  <span className="social-arrow"></span> Instagram
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <span className="social-arrow"></span> Facebook
+                </a>
+                <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <span className="social-arrow"></span> Behance
+                </a>
               </div>
             </div>
           </div>
