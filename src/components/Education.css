@@ -60,7 +60,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
   z-index: 2;
 }
@@ -79,18 +79,19 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #FF0033; /* Use the ruby red for the date as requested */
+  color: #FF0033;
   opacity: 0.9;
 }
 
 .institution {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: rgba(var(--text-primary-rgb), 0.6);
   font-weight: 500;
   margin: 0;
   position: relative;
   z-index: 2;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -112,11 +113,7 @@
     max-width: 100%;
   }
   
-  .duration {
-    font-size: 1rem;
-  }
-  
-  .institution {
-    font-size: 1rem;
+  .duration, .institution {
+    font-size: 0.95rem;
   }
 }
