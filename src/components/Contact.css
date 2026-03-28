@@ -99,6 +99,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   max-width: 1200px;
+  padding-left: 6rem;
 }
 
 .social-column {
