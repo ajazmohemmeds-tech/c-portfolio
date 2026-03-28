@@ -130,59 +130,6 @@ const ProjectSlider = () => {
   );
 };
 
-const VolunteeringGrid = () => {
-  const photos = [
-    { 
-      src: "images/photo1.jpg", 
-      title: "Recognition", 
-      desc: "Recognised by the HOD for contribution to the Media Team." 
-    },
-    { 
-      src: "images/gallery_1.jpg", 
-      title: "Leadership", 
-      desc: "Appointed as Media Vice Head - trusted to lead, create and deliver." 
-    },
-    { 
-      src: "images/photo2.JPG", 
-      title: "Teamwork", 
-      desc: "The team behind it all." 
-    },
-    { 
-      src: "images/photo3.JPG", 
-      title: "Collaboration", 
-      desc: "Students and Faculty - learning, building and delivering together." 
-    },
-    { 
-      src: "images/photo4.jpg", 
-      title: "Excellence", 
-      desc: "Awarded by Col. Jai Govind for excellence in media execution." 
-    }
-  ];
-
-  return (
-    <div className="volunteering-grid">
-      {photos.map((photo, i) => (
-        <motion.div 
-          key={i}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.1, duration: 0.8 }}
-          className="grid-item"
-        >
-          <img 
-            src={`${import.meta.env.BASE_URL}${photo.src}`} 
-            alt={photo.title} 
-          />
-          <div className="grid-overlay">
-            <p>{photo.desc}</p>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-};
-
 const Projects = () => {
   return (
     <section id="projects" className="section projects">
@@ -257,8 +204,6 @@ const Projects = () => {
               </motion.div>
             ))}
           </div>
-
-          <VolunteeringGrid />
         </div>
       </div>
     </section>
