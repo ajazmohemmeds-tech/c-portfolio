@@ -1,0 +1,14 @@
+exclude:
+  - bg_env
+  - node_modules
+  - .gitignore
+  - package.json
+  - package-lock.json
+  - README.md
+  - capture_ss.mjs
+  - fix_kaizen.mjs
+  - test_gemini.mjs
+  - update_links.mjs
+  - update_projects.js
+  - update_projects.mjs
+  - bg_remove.py

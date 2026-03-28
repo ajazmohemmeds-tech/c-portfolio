@@ -1,0 +1,2 @@
+# This file tells GitHub Pages to disable Jekyll processing of the repository.
+# This avoids errors caused by Jekyll attempting to read virtual environments or broken symlinks.

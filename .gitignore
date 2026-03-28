@@ -112,3 +112,14 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Python Virtual Environments
+bg_env/
+venv/
+.venv/
+env/
+.env/
+bin/
+lib/
+share/
+include/
