@@ -47,13 +47,8 @@
   height: 16px;
 }
 
-/* Inversion logic based on background contrast */
-[data-theme='light'] .kaizen-trigger .kaizen-icon-img,
-[data-theme='light'] .kaizen-header .kaizen-icon-img {
-  filter: invert(1);
-}
-
-[data-theme='dark'] .thought-process .kaizen-icon-img {
+/* Icon visibility on dark background */
+.thought-process .kaizen-icon-img {
   filter: invert(1);
 }
 

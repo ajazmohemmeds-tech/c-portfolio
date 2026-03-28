@@ -1,0 +1,75 @@
+.experience-cinematic {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 10rem 0;
+}
+
+.exp-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.3em;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+.cinematic-text-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.text-layer {
+  width: 100%;
+}
+
+.cinematic-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.5rem, 4.5vw, 3.125rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.base-layer {
+  color: var(--text-primary);
+  opacity: 1;
+}
+
+.base-layer .highlight {
+  color: #FF0033; /* Using the vibrant red for professional highlights */
+}
+
+.secret-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: black; /* High-contrast black for reveal */
+  background-color: #FF0033; /* Solid vibrant red circle background */
+  z-index: 10;
+  pointer-events: none;
+  transition: clip-path 0.1s ease-out, -webkit-clip-path 0.1s ease-out;
+}
+
+.secret-layer .cinematic-headline {
+  color: black !important;
+}
+
+@media (max-width: 768px) {
+  .cinematic-headline {
+    font-size: 2.8rem;
+  }
+  .experience-cinematic {
+    padding: 6rem 0;
+  }
+}

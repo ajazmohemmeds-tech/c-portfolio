@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: #fff;
+  background-color: var(--bg-primary);
   padding: 8rem 0;
   text-align: center;
   position: relative;
@@ -51,7 +51,7 @@
 .hero-intro {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #333;
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -61,26 +61,28 @@
 .hero-headline {
   display: flex;
   flex-direction: column;
+  align-items: center;
   line-height: 0.85;
   margin-bottom: 25rem; /* Space for the image */
 }
 
 .hero-headline span {
-  font-size: clamp(3rem, 10vw, 7.5rem);
-  text-transform: capitalize;
-  font-weight: 950;
-  letter-spacing: -0.05em;
-  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 7.5vw, 6.5rem);
+  text-transform: none;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;
 }
 
 .hero-headline .bold {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .hero-headline .outline {
   color: transparent;
-  -webkit-text-stroke: 2px #000;
-  text-stroke: 2px #000;
+  -webkit-text-stroke: 2px var(--text-primary);
+  text-stroke: 2px var(--text-primary);
 }
 
 .hero-location {
@@ -88,7 +90,7 @@
   bottom: 3rem;
   left: 3rem;
   font-size: 1.1rem;
-  color: #666;
+  color: var(--text-secondary);
   font-weight: 500;
   z-index: 3;
 }
@@ -115,23 +117,23 @@
 }
 
 .btn-primary {
-  background: #000;
-  color: #fff;
-  border: 1px solid #000;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: 1px solid var(--text-primary);
 }
 
 .btn-primary:hover {
-  background: #333;
+  opacity: 0.9;
 }
 
 .btn-secondary {
   background: transparent;
-  color: #000;
-  border: 1px solid #000;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
 }
 
 .btn-secondary:hover {
-  background: rgba(0,0,0,0.05);
+  background: var(--tag-bg);
 }
 
 @media (max-width: 768px) {
@@ -139,7 +141,7 @@
     margin-bottom: 15rem;
   }
   .hero-headline .outline {
-    -webkit-text-stroke: 1px #000;
+    -webkit-text-stroke: 1px var(--text-primary);
   }
   .hero-btns {
     flex-direction: column;

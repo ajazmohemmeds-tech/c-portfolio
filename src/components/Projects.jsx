@@ -1,69 +1,258 @@
-import React from 'react';
-import { projects, research } from '../data';
-import { ExternalLink, Github, FileText } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { projects, research, volunteering, volunteeringGallery } from '../data';
+import { ExternalLink, Github, FileText, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
+
+
+
+const ProjectSlider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    })
+  };
+
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity;
+  };
+
+  const paginate = (newDirection) => {
+    setDirection(newDirection);
+    setCurrentIndex((prevIndex) => (prevIndex + newDirection + projects.length) % projects.length);
+  };
+
+  const currentProject = projects[currentIndex];
+
+  return (
+    <div className="project-slider-container">
+      <div className="slider-controls">
+        <button className="nav-btn prev" onClick={() => paginate(-1)}>
+          <ArrowLeft size={24} />
+        </button>
+        <button className="nav-btn next" onClick={() => paginate(1)}>
+          <ArrowRight size={24} />
+        </button>
+      </div>
+
+      <div className="slider-window">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x);
+              if (swipe < -swipeConfidenceThreshold) {
+                paginate(1);
+              } else if (swipe > swipeConfidenceThreshold) {
+                paginate(-1);
+              }
+            }}
+            className="project-slide"
+          >
+            <div className="slide-content">
+              <span className="project-index">{(currentIndex + 1).toString().padStart(2, '0')}</span>
+              <div className="project-info">
+                <h3>{currentProject.title}</h3>
+                <p className="project-role">{currentProject.role || "Developer"}</p>
+                <div className="tools-features">
+                  <h4>TOOLS & FEATURES</h4>
+                  <ul>
+                    {currentProject.tech.map((t, i) => <li key={i}>{t}</li>)}
+                  </ul>
+                </div>
+                <div className="project-links">
+                  {currentProject.githubLink && (
+                    <a href={currentProject.githubLink} target="_blank" rel="noopener noreferrer" className="link-btn">
+                      <Github size={18} /> Code
+                    </a>
+                  )}
+                  {currentProject.demoLink && (
+                    <a href={currentProject.demoLink} target="_blank" rel="noopener noreferrer" className="link-btn">
+                      <ExternalLink size={18} /> Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+            
+            <div className="slide-visual">
+              <div className="visual-frame">
+                {currentProject.image ? (
+                  <img src={`${import.meta.env.BASE_URL}${currentProject.image}`} alt={currentProject.title} />
+                ) : (
+                  <div className="placeholder-image">Visual Mockup</div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="slider-pagination">
+        {projects.map((_, i) => (
+          <button 
+            key={i} 
+            className={`pagination-dot ${i === currentIndex ? 'active' : ''}`}
+            onClick={() => {
+              setDirection(i > currentIndex ? 1 : -1);
+              setCurrentIndex(i);
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const VolunteeringGrid = () => {
+  const photos = [
+    { 
+      src: "images/photo1.jpg", 
+      title: "Recognition", 
+      desc: "Recognised by the HOD for contribution to the Media Team." 
+    },
+    { 
+      src: "images/gallery_1.jpg", 
+      title: "Leadership", 
+      desc: "Appointed as Media Vice Head - trusted to lead, create and deliver." 
+    },
+    { 
+      src: "images/photo2.JPG", 
+      title: "Teamwork", 
+      desc: "The team behind it all." 
+    },
+    { 
+      src: "images/photo3.JPG", 
+      title: "Collaboration", 
+      desc: "Students and Faculty - learning, building and delivering together." 
+    },
+    { 
+      src: "images/photo4.jpg", 
+      title: "Excellence", 
+      desc: "Awarded by Col. Jai Govind for excellence in media execution." 
+    }
+  ];
+
+  return (
+    <div className="volunteering-grid">
+      {photos.map((photo, i) => (
+        <motion.div 
+          key={i}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.1, duration: 0.8 }}
+          className="grid-item"
+        >
+          <img 
+            src={`${import.meta.env.BASE_URL}${photo.src}`} 
+            alt={photo.title} 
+          />
+          <div className="grid-overlay">
+            <p>{photo.desc}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
 
 const Projects = () => {
   return (
     <section id="projects" className="section projects">
       <div className="container">
-        <h2 className="section-title">Projects & <span>Research</span></h2>
+        <header className="projects-header">
+          <span className="section-label reveal">MY WORK</span>
+        </header>
         
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-image">
-                {project.image ? (
-                   <img src={project.image} alt={project.title} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
-                ) : (
-                  <div className="placeholder-image">
-                    <span>Project Image</span>
-                  </div>
-                )}
-              </div>
-              <div className="project-content">
-                <h3>{project.title}</h3>
-                <p className="project-desc">{project.description}</p>
-                <div className="project-meta">
-                  <span><strong>Role:</strong> {project.role}</span>
-                  <span className="project-status">{project.status}</span>
+        <ProjectSlider />
+
+        <div className="research-block">
+          <div className="subsection-header">
+            <span className="section-label reveal">RESEARCH PUBLICATIONS</span>
+          </div>
+          <div className="research-list">
+            {research.map((paper, index) => (
+              <motion.div 
+                key={index} 
+                className="research-item"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+              >
+                <div className="research-meta">
+                  <span className="research-date">{paper.date}</span>
+                  <span className="research-publisher">{paper.publisher}</span>
                 </div>
-                <div className="project-tags">
-                  {project.tech.map(tech => (
-                    <span key={tech}>{tech}</span>
-                  ))}
+                <h4>{paper.title}</h4>
+                <p className="research-conf">{paper.conference}</p>
+                <div className="research-actions">
+                  <a href={paper.paperLink} className="read-more" target="_blank" rel="noopener noreferrer">
+                    View Paper <ArrowRight size={14} />
+                  </a>
+                  {paper.certificateLink && (
+                    <Link to="/certificate" className="read-more">
+                      View Certificate <ArrowRight size={14} />
+                    </Link>
+                  )}
                 </div>
-                <div className="project-outcome">
-                   <strong>Outcome:</strong> {project.outcome}
-                </div>
-                <div className="project-links">
-                  <a href={project.githubLink || "#"} target={project.githubLink ? "_blank" : undefined} rel="noopener noreferrer" className="link-btn"><Github size={16} /> Code</a>
-                  <a href={project.demoLink || "#"} target={project.demoLink ? "_blank" : undefined} rel="noopener noreferrer" className="link-btn"><ExternalLink size={16} /> Demo</a>
-                </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="research-section">
-          <h3 className="subsection-title">Research Publications</h3>
-          {research.map((paper, index) => (
-            <div key={index} className="research-card">
-              <div className="research-icon">
-                <FileText size={32} />
-              </div>
-              <div className="research-content">
-                <h4>{paper.title}</h4>
-                <p className="research-venue">
-                  {paper.publisher} - {paper.conference} ({paper.date})
-                </p>
-                <p className="research-abstract">{paper.description}</p>
-                <div className="research-authors">
-                  <strong>Authors:</strong> {paper.authors.join(", ")}
+        <div className="volunteering-block">
+          <div className="subsection-header">
+            <span className="section-label reveal">VOLUNTEERING</span>
+          </div>
+          <div className="volunteering-list">
+            {volunteering.map((v, index) => (
+              <motion.div 
+                key={index} 
+                className="volunteering-item"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+              >
+                <div className="volunteering-meta">
+                  <span className="volunteering-role">{v.role}</span>
+                  {v.period && <span className="volunteering-date">{v.period}</span>}
                 </div>
-              </div>
-            </div>
-          ))}
+                <h4>{v.organization}</h4>
+                <p className="volunteering-desc">{v.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <VolunteeringGrid />
         </div>
       </div>
     </section>

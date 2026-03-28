@@ -20,10 +20,18 @@
   font-weight: 900;
   letter-spacing: -0.05em;
   color: var(--text-primary);
+  display: flex;
+  align-items: baseline;
 }
 
-.logo span {
-  color: #ff0055;
+.logo .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #FF0033;
+  border-radius: 50%;
+  margin-left: 2px;
+  margin-bottom: 4px;
 }
 
 .nav-menu {

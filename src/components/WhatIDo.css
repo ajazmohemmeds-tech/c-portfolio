@@ -1,0 +1,196 @@
+.what-i-do-premium {
+  background-color: var(--bg-primary);
+  padding: 10rem 0;
+  overflow: hidden;
+}
+
+.premium-header {
+  padding-left: 100px;
+  margin-bottom: 6rem;
+}
+
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.2rem;
+  display: block;
+}
+
+.premium-services {
+  max-width: 1400px;
+  position: relative;
+}
+
+.service-line-item {
+  position: relative; /* Context for flowing bar */
+  width: 100%;
+  cursor: none; /* Hide real cursor over rows for effect */
+  --mouse-y: 50%;
+  z-index: 10; /* Above the bar */
+}
+
+.grid-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-left: 100px;
+  margin-right: 60px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grid-line.reveal-active {
+  transform: scaleX(1);
+}
+
+.word-content {
+  padding-left: 100px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.word-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+}
+
+.title-container {
+  position: relative;
+}
+
+.premium-word {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+  transition: color 0.3s ease; /* Added color transition */
+}
+
+.service-line-item:hover .premium-word {
+  color: #000; /* Turn black on hover */
+}
+
+.premium-word-reveal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #000; /* Black text inside red bar */
+  margin: 0;
+  text-transform: uppercase;
+  clip-path: circle(0% at 0 0); /* Managed by magnetic bar */
+  z-index: 5;
+  pointer-events: none;
+  transition: clip-path 0.1s ease-out;
+}
+
+/* Shared Flowing Bar */
+.flowing-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FF0033;
+  z-index: 5; /* Middle layer */
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+  will-change: transform, height;
+}
+
+/* Inversion Effect on Hover */
+.service-line-item:hover .premium-word,
+.service-line-item:hover .premium-secret {
+  color: #000000 !important; /* Pure black */
+  opacity: 1 !important;
+  transform: translateX(0);
+}
+
+/* Secret Message State */
+.premium-secret {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 350px;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-right: 60px;
+}
+
+.title-container:hover + .premium-secret {
+  opacity: 1;
+  transform: translateX(0);
+  color: #fff;
+}
+
+/* Reveal transition helpers */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.parallax-text {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+@media (max-width: 1024px) {
+  .premium-header, .word-content {
+    padding-left: 40px;
+  }
+  .grid-line {
+    margin-left: 40px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .premium-header, .word-content {
+    padding-left: 20px;
+  }
+  .grid-line {
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+  .word-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .premium-secret {
+    max-width: 100%;
+    padding-right: 0;
+    font-size: 0.95rem;
+  }
+  .magnetic-bar {
+    display: none; /* Disable complex effect on mobile for better usability */
+  }
+  .service-line-item:hover {
+    background: rgba(255, 0, 51, 0.1);
+  }
+}

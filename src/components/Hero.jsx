@@ -12,7 +12,6 @@ const Hero = () => {
         <img src={`${import.meta.env.BASE_URL}images/main.PNG`} alt="Background" />
       </div>
       
-      <div className="hero-location">based in India.</div>
 
       <div className="container hero-container">
         <div className="hero-content">
@@ -21,8 +20,8 @@ const Hero = () => {
           </p>
           
           <h1 className="hero-headline">
-            <span className="bold">Artificial intelligence</span>
-            <span className="outline">& machine learning</span>
+            <span className="bold">Artificial Intelligence</span>
+            <span className="outline">& Machine Learning</span>
           </h1>
           
           <div className="hero-btns-wrapper">
@@ -31,7 +30,7 @@ const Hero = () => {
                   You need a AI engineer
                 </button>
                 <button className="btn btn-secondary" onClick={scrollToContact}>
-                  You need a ML expert
+                  Let's Connect
                 </button>
              </div>
           </div>

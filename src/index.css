@@ -1,28 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap');
+/* Using system/premium Helvetica Now / Neue Haas Grotesk stack */
 
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9f9f9;
-  --bg-card: #ffffff;
-  --text-primary: #000000;
-  --text-secondary: #555555;
-  --accent: #000000;
-  --border: #eeeeee;
-  --font-main: 'Inter', sans-serif;
-  --header-bg: rgba(255, 255, 255, 0.8);
-  --tag-bg: rgba(0, 0, 0, 0.05);
-}
-
-[data-theme='dark'] {
   --bg-primary: #0a0a0a;
   --bg-secondary: #141414;
   --bg-card: #1a1a1a;
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
-  --accent: #ffffff;
+  --accent: #FF0033;
   --border: #222222;
+  --font-main: "Helvetica Now", "Neue Haas Grotesk", sans-serif;
   --header-bg: rgba(10, 10, 10, 0.8);
   --tag-bg: rgba(255, 255, 255, 0.05);
+  --primary-color: #ffffff;
+  --secondary-color: #a0a0a0;
+  --text-primary-rgb: 255, 255, 255;
+  --bg-primary-rgb: 10, 10, 10;
 }
 
 * {

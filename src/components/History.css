@@ -1,0 +1,188 @@
+.history-section {
+  padding: 10rem 0;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.history-header {
+  margin-bottom: 4rem;
+}
+
+.history-list {
+  width: 100%;
+}
+
+.history-item {
+  position: relative;
+  width: 100%;
+  cursor: none; /* Hide default cursor to emphasize the magnetic reveal */
+  overflow: hidden;
+}
+
+.grid-line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal-active .grid-line {
+  transform: scaleX(1);
+}
+
+.history-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.reveal-active .history-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.h-year {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.h-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.h-title {
+  font-family: 'Helvetica Now', sans-serif;
+  font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.h-sep {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.1rem;
+}
+
+.h-company {
+  font-family: 'Helvetica Now', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+.info-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.history-secret {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  color: #FF0033;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+  text-align: right;
+  max-width: 60%;
+}
+
+.history-item:hover .history-secret {
+  opacity: 1 !important;
+  transform: translateX(0);
+  color: #000000 !important;
+}
+
+.history-item:hover .h-year,
+.history-item:hover .h-title,
+.history-item:hover .h-company,
+.history-item:hover .h-sep {
+  color: #000000 !important;
+}
+
+/* Shared Flowing Bar */
+.flowing-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FF0033; 
+  z-index: 5;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+  will-change: transform, height;
+}
+
+/* Magnetic Bar Reveal */
+.magnetic-bar {
+  position: absolute;
+  top: var(--mouse-y, 50%);
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #FF0033; 
+  z-index: 1;
+  transform: translateY(-50%);
+  transition: height 0.4s cubic-bezier(0.19, 1, 0.22, 1), top 0.1s ease-out;
+  pointer-events: none;
+}
+
+.history-item:hover .magnetic-bar {
+  height: 100px; /* Slimmer bar for smaller text */
+}
+
+/* Inversion Effect on Hover */
+.history-item:hover .history-role,
+.history-item:hover .history-secret {
+  color: black !important; /* Force black on red */
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .main-info {
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .history-secret {
+    width: 100%;
+    text-align: left;
+    transform: none;
+  }
+  
+  .history-item:hover .magnetic-bar {
+    height: 160px;
+  }
+}

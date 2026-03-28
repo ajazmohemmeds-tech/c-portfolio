@@ -1,50 +1,111 @@
-import React from 'react';
-import { personalInfo, experience } from '../data';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './About.css';
 
-const About = () => {
+const Word = ({ children, progress, range }) => {
+  const opacity = useTransform(progress, range, [0.1, 1]);
   return (
-    <section id="about" className="section about">
-      <div className="container">
-        <h2 className="section-title">About <span>Me</span></h2>
-        
-        <div className="about-grid">
-          <div className="about-text">
-            <h3 className="about-subtitle">My Background</h3>
-            <p>
-              I am an Artificial Intelligence and Machine Learning enthusiast pursuing my B.Tech at Christ University, Bangalore.
-              With a strong foundation in Python, specialized libraries like TensorFlow and PyTorch, and a passion for data science,
-              I have developed predictable models and intelligent systems.
-            </p>
-            
-            <div className="education-list">
-              <h4>Education</h4>
-              {personalInfo.education.map((edu, index) => (
-                <div key={index} className="education-item">
-                  <h5>{edu.degree}</h5>
-                  <p>{edu.institution}</p>
-                  <span>{edu.year}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+    <span className="word-span">
+      <motion.span style={{ opacity }}>
+        {children}
+      </motion.span>
+    </span>
+  );
+};
+
+const About = () => {
+  const [isHovering, setIsHovering] = useState(false);
+  const sectionRef = useRef(null);
+  const headlineRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: headlineRef,
+    offset: ["start 0.9", "start 0.25"]
+  });
+
+  const headlineText = "I build intelligent systems, experiment with ideas, and turn complex problems into simple, powerful solutions that create real impact.";
+  const words = headlineText.split(" ");
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (sectionRef.current && isHovering) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        sectionRef.current.style.setProperty('--about-x', `${x}px`);
+        sectionRef.current.style.setProperty('--about-y', `${y}px`);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-active');
+        }
+      });
+    }, observerOptions);
+
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    revealElements?.forEach(el => observer.observe(el));
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      observer.disconnect();
+    };
+  }, [isHovering]);
+
+  const spotlightSize = isHovering ? 250 : 0;
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      sectionRef.current.style.setProperty('--spotlight-size', `${spotlightSize}px`);
+    }
+  }, [spotlightSize]);
+
+  return (
+    <section 
+      id="about" 
+      className="about-section" 
+      ref={sectionRef}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      {/* Cinematic Intro Page */}
+      <div className="about-cinematic">
+        <div className="container">
+          <div className="about-label reveal">ABOUT ME</div>
           
-          <div className="experience-list">
-            <h3 className="about-subtitle">Experience</h3>
-            {experience.map((job, index) => (
-              <div key={index} className="experience-card">
-                <div className="exp-header">
-                  <h4>{job.role}</h4>
-                  <span className="exp-period">{job.period}</span>
-                </div>
-                <h5>{job.company} - {job.type}</h5>
-                <ul className="exp-desc">
-                  {job.description.map((desc, i) => (
-                    <li key={i}>{desc}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="headline-wrapper" ref={headlineRef}>
+            {/* Base Layer - Highlighting Words */}
+            <div className="text-layer base-layer">
+              <h2 className="about-headline">
+                {words.map((word, i) => {
+                  const highlightTerms = ["intelligent", "systems", "simple,", "powerful", "solutions"];
+                  const isHighlighted = highlightTerms.some(term => word.toLowerCase().includes(term.toLowerCase()));
+                  const start = i / words.length;
+                  const end = start + (1 / words.length);
+                  return (
+                    <Word key={i} progress={scrollYProgress} range={[start, end]}>
+                      <span className={isHighlighted ? "highlight" : ""}>{word}</span>
+                    </Word>
+                  );
+                })}
+              </h2>
+            </div>
+
+            {/* Secret Layer - Spotlight Reveal */}
+            <div className="text-layer secret-layer">
+              <h2 className="about-headline">
+                building things that sometimes work, pretending i understand everything, questioning life choices
+              </h2>
+            </div>
           </div>
         </div>
       </div>
