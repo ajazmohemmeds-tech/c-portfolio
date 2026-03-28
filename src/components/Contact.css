@@ -17,69 +17,6 @@
   text-transform: uppercase;
 }
 
-.contact-main-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border: 1px solid var(--border);
-  margin-bottom: 4rem;
-}
-
-.contact-grid-item {
-  padding: 2.5rem;
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  transition: background-color 0.3s ease;
-}
-
-.contact-grid-item:last-child {
-  border-right: none;
-}
-
-.contact-grid-item:hover {
-  background-color: rgba(255, 255, 255, 0.02);
-}
-
-.contact-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.contact-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.4);
-  letter-spacing: 0.1em;
-}
-
-.corner-icon {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.contact-icon {
-  margin-bottom: 1.5rem;
-  color: var(--text-primary);
-}
-
-.contact-value {
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 0.75rem;
-  color: var(--text-primary);
-}
-
-.contact-value-link {
-  text-decoration: none;
-  display: block;
-}
-
-.contact-subtext {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
-  line-height: 1.4;
-}
 
 /* Bottom Grid Section */
 .contact-footer-grid {
@@ -138,13 +75,13 @@
   height: 0;
   border-style: solid;
   border-width: 0.35rem 0 0.35rem 0.6rem;
-  border-color: transparent transparent transparent #FF3D00;
+  border-color: transparent transparent transparent #FF0033;
   transition: all 0.4s ease;
 }
 
 .social-link:hover {
   transform: translateX(1.5rem);
-  color: #FF3D00;
+  color: #FF0033;
 }
 
 .social-link:hover .social-arrow::before {
@@ -182,17 +119,6 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
-@media (max-width: 1024px) {
-  .contact-main-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .contact-grid-item:nth-child(2) {
-    border-right: none;
-  }
-  .contact-grid-item:nth-child(n+3) {
-    border-top: 1px solid var(--border);
-  }
-}
 
 @media (max-width: 768px) {
   .contact-socials-section {
@@ -204,14 +130,5 @@
   }
   .social-link {
     font-size: 3rem;
-  }
-  .contact-main-grid {
-    grid-template-columns: 1fr;
-  }
-  .contact-grid-item {
-    border-right: none !important;
-  }
-  .contact-grid-item:nth-child(n+2) {
-    border-top: 1px solid var(--border);
   }
 }
