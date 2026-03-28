@@ -209,8 +209,8 @@
   position: relative;
   border-radius: 4rem;
   overflow: hidden;
-  /* Fixed base path - trusting Vite's /images/root instead of hardcoded subbase */
-  background-image: url('/images/research-bg.png') !important;
+  /* Hardcoding base path to ensure it loads on GitHub Pages regardless of Vite build processing on this specific file */
+  background-image: url('/c-portfolio/images/research-bg.png') !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important;
@@ -224,9 +224,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* Lightened overlay for better background visibility */
-  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.75));
-  backdrop-filter: brightness(0.7); /* Brightened from 0.5 to 0.7 */
+  /* Significantly lightened overlay to clearly reveal the background glow */
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.65));
+  backdrop-filter: brightness(0.85); /* Increased from 0.7 to 0.85 */
   z-index: 1;
 }
 
@@ -243,10 +243,10 @@
 
 .research-item {
   position: relative;
-  background: rgba(255, 255, 255, 0.035); /* Slightly increased opacity for better glass definition */
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04); /* Thin for glass effect */
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 2rem;
   padding: 3rem;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -259,8 +259,8 @@
 .research-item:hover {
   transform: translateY(-10px) scale(1.02);
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 0, 51, 0.1);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 0, 51, 0.15);
 }
 
 .research-meta {
@@ -311,7 +311,7 @@
   gap: 2rem;
   margin-top: auto;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Increased border visibility */
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .read-more {
