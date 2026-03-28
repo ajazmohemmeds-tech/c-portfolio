@@ -17,6 +17,7 @@ import './index.css';
 
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import CertificatePage from './CertificatePage';
+import GalleryPage from './GalleryPage';
 
 const MainContent = ({ loading }) => {
   return (
@@ -105,6 +106,7 @@ function AppInner({ loading, setLoading }) {
       <Routes>
         <Route path="/" element={<MainContent loading={loading} />} />
         <Route path="/certificate" element={<CertificatePage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
       </Routes>
     </div>
   );

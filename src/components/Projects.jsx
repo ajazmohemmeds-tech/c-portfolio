@@ -5,8 +5,6 @@ import { ExternalLink, Github, FileText, ArrowLeft, ArrowRight } from 'lucide-re
 import { Link } from 'react-router-dom';
 import './Projects.css';
 
-
-
 const ProjectSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -248,6 +246,14 @@ const Projects = () => {
                 </div>
                 <h4>{v.organization}</h4>
                 <p className="volunteering-desc">{v.description}</p>
+                {/* Specific Action Link for CUESTIC Gallery */}
+                {v.organization.includes("CUESTIC") && (
+                  <div className="volunteering-actions" style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                    <Link to="/gallery" className="read-more">
+                      View Gallery <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
