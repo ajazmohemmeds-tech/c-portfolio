@@ -88,7 +88,7 @@ export const research = [
     date: "11/2025",
     description: "Developed a hybrid diffusion model combining UNet denoising with transformer-based cross-attention to enhance both image quality and interpretability in text-to-image generation. Introduced an explainability framework using attention heatmaps and temporal analysis to track how text tokens influence image regions. Achieved measurable improvements in FID, CLIP score, and attention coherence, enabling more transparent and controllable generative AI systems.",
     authors: ["Ajaz Mohemmed S", "Aldrin P Thomas", "Shiju George", "N Anand Raj", "Mdhun Shaju", "Akil Nasim"],
-    certificateLink: "/portfolio/images/research-cert.jpg",
+    certificateLink: "/c-portfolio/images/research-cert.jpg", /* Fixed base path */
     paperLink: "#"
   }
 ];
