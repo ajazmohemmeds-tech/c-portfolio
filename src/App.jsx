@@ -25,7 +25,7 @@ const MainContent = ({ loading }) => {
       <Loader loading={loading} />
       <Header />
       <SocialSidebar />
-      <KaizenAssistant />
+      {!loading && <KaizenAssistant />}
       <main>
         <Hero />
         <About />
