@@ -49,7 +49,7 @@ function App() {
 
   // Handle Lenis and other window-level effects
   return (
-    <Router basename="/portfolio">
+    <Router basename="/c-portfolio">
       <AppInner loading={loading} setLoading={setLoading} />
     </Router>
   );
