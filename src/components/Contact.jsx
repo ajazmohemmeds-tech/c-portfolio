@@ -62,25 +62,19 @@ const Contact = () => {
           <div className="contact-socials-section">
             <div className="socials-grid">
               <div className="social-column">
-                <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                  <span className="social-arrow"></span> Dribbble
-                </a>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                  <span className="social-arrow"></span> Youtube
-                </a>
                 <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
                   <span className="social-arrow"></span> Linkedin
                 </a>
-              </div>
-              <div className="social-column">
                 <a href={personalInfo.instagram} target="_blank" rel="noopener noreferrer" className="social-link">
                   <span className="social-arrow"></span> Instagram
                 </a>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                  <span className="social-arrow"></span> Facebook
+              </div>
+              <div className="social-column">
+                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="social-link">
+                  <span className="social-arrow"></span> Github
                 </a>
-                <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="social-link">
-                  <span className="social-arrow"></span> Behance
+                <a href="#" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <span className="social-arrow"></span> Medium
                 </a>
               </div>
             </div>
