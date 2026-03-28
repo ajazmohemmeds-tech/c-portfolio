@@ -12,6 +12,7 @@ import Education from './components/Education';
 import TechStack from './components/TechStack';
 import SocialSidebar from './components/SocialSidebar';
 import KaizenAssistant from './components/KaizenAssistant';
+import Research from './components/Research';
 import Loader from './components/Loader';
 import './index.css';
 
@@ -31,6 +32,7 @@ const MainContent = ({ loading }) => {
         <About />
         <Education />
         <WhatIDo />
+        <Research />
         <ExperienceCinematic />
         <History />
         <TechStack />
