@@ -85,7 +85,7 @@
 
 .h-company {
   font-family: 'Helvetica Now', sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
   transition: color 0.3s ease;
@@ -176,10 +176,11 @@
     gap: 1rem;
   }
   
-  .history-secret {
+  .history-secret, .h-company {
     width: 100%;
     text-align: left;
     transform: none;
+    font-size: 0.95rem;
   }
   
   .history-item:hover .magnetic-bar {
