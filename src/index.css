@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 /* Using system/premium Helvetica Now / Neue Haas Grotesk stack */
 
 :root {
@@ -9,7 +9,7 @@
   --text-secondary: #a0a0a0;
   --accent: #FF0033;
   --border: #222222;
-  --font-main: "Helvetica Now", "Neue Haas Grotesk", sans-serif;
+  --font-main: 'Outfit', sans-serif;
   --header-bg: rgba(10, 10, 10, 0.8);
   --tag-bg: rgba(255, 255, 255, 0.05);
   --primary-color: #ffffff;
@@ -29,7 +29,9 @@ body {
   font-family: var(--font-main);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.5;
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: -0.02em;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -53,12 +55,13 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
 }
 
 h1 {
-  font-size: clamp(24px, 5vw, 48px);
+  font-size: clamp(2.5rem, 6vw, 5rem);
 }
 
 a {
