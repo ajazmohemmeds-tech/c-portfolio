@@ -5,16 +5,16 @@
   padding-bottom: 4rem;
 }
 
-.contact-title {
-  font-size: clamp(4rem, 15vw, 10rem);
-  font-weight: 950;
-  text-align: left;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+.contact-header {
   margin-bottom: 6rem;
-  text-transform: uppercase;
+}
+
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.2rem;
+  display: block;
 }
 
 
@@ -33,9 +33,9 @@
 
 .socials-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem 6rem;
-  max-width: 800px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 4rem;
+  max-width: 1200px;
   padding-left: 0;
 }
 
@@ -56,6 +56,39 @@
   line-height: 1.2;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   letter-spacing: -0.01em;
+}
+
+/* Contact Info Column */
+.contact-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a.info-value:hover {
+  color: #FF0033;
 }
 
 .social-arrow {
@@ -120,6 +153,21 @@
 }
 
 
+@media (max-width: 1024px) {
+  .socials-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .contact-info-column {
+    grid-column: span 2;
+    flex-direction: row;
+    gap: 4rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+}
+
 @media (max-width: 768px) {
   .contact-socials-section {
     padding: 6rem 1.5rem;
@@ -128,7 +176,12 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  .social-link {
-    font-size: 3rem;
+  .contact-info-column {
+    grid-column: span 1;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .social-link, .info-value {
+    font-size: 2.5rem;
   }
 }

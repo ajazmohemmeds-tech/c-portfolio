@@ -8,9 +8,10 @@ const Contact = () => {
   return (
     <footer id="contact" className="section contact">
       <div className="container">
-        <h1 className="contact-title">LET'S CONNECT</h1>
+        <div className="contact-header">
+          <span className="section-label reveal">CONNECT</span>
+        </div>
         
-
         <div className="contact-footer-grid">
           <div className="contact-socials-section">
             <div className="socials-grid">
@@ -30,9 +31,18 @@ const Contact = () => {
                   <span className="social-arrow"></span> Medium
                 </a>
               </div>
+              <div className="social-column contact-info-column">
+                <div className="contact-info-item">
+                  <span className="info-label">Email</span>
+                  <a href={`mailto:${personalInfo.email}`} className="info-value">{personalInfo.email}</a>
+                </div>
+                <div className="contact-info-item">
+                  <span className="info-label">Phone</span>
+                  <span className="info-value">{personalInfo.phone}</span>
+                </div>
+              </div>
             </div>
           </div>
-          
         </div>
 
         <div className="footer-copyright">
