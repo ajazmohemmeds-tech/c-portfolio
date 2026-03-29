@@ -1,5 +1,5 @@
 .experience-cinematic {
-  min-height: 100vh;
+  min-height: 40vh;
   background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   text-align: left;
   position: relative;
   overflow: hidden;
-  padding: 10rem 0;
+  padding: 10rem 0 4rem 0;
 }
 
 .exp-label {
