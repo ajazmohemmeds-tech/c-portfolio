@@ -170,23 +170,35 @@ a.info-value:hover {
 
 @media (max-width: 768px) {
   .contact-socials-section {
-    padding: 6rem 1.5rem 6rem 1.5rem;
+    padding: 4rem 1.5rem 6rem 1.5rem;
   }
   .socials-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+  .social-column {
+    gap: 0.8rem;
+  }
   .contact-info-column {
     grid-column: span 1;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
+    margin-top: 1rem;
   }
-  .social-link, .info-value {
-    font-size: 1.6rem;
+  .social-link {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    gap: 1rem;
+  }
+  .info-value {
+    font-size: 1.4rem;
+    font-weight: 600;
   }
   .social-arrow {
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.75rem;
+    height: 0.75rem;
   }
   .social-arrow::before {
     border-width: 0.3rem 0 0.3rem 0.5rem;
