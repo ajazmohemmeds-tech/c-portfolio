@@ -170,11 +170,11 @@ a.info-value:hover {
 
 @media (max-width: 768px) {
   .contact-socials-section {
-    padding: 6rem 1.5rem;
+    padding: 6rem 1.5rem 6rem 1.5rem;
   }
   .socials-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
   .contact-info-column {
     grid-column: span 1;
@@ -182,6 +182,13 @@ a.info-value:hover {
     gap: 2.5rem;
   }
   .social-link, .info-value {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
+  }
+  .social-arrow {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  .social-arrow::before {
+    border-width: 0.3rem 0 0.3rem 0.5rem;
   }
 }
