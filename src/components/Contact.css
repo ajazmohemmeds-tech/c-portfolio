@@ -26,7 +26,7 @@
 }
 
 .contact-socials-section {
-  padding: 8rem 2rem;
+  padding: 8rem 2rem 8rem 2cm;
   border-top: none;
 }
 
@@ -47,14 +47,15 @@
 .social-link {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 950;
+  gap: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
   line-height: 1.1;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  letter-spacing: -0.04em;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 /* Contact Info Column */
@@ -91,8 +92,8 @@ a.info-value:hover {
 }
 
 .social-arrow {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 0.9rem;
+  height: 0.9rem;
   position: relative;
   display: inline-block;
 }
@@ -106,13 +107,13 @@ a.info-value:hover {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0.5rem 0 0.5rem 0.8rem;
+  border-width: 0.35rem 0 0.35rem 0.6rem;
   border-color: transparent transparent transparent #FF0033;
   transition: all 0.4s ease;
 }
 
 .social-link:hover {
-  transform: translateX(2.5rem);
+  transform: translateX(1.5rem);
   color: #FF0033;
 }
 
