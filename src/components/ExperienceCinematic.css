@@ -71,10 +71,21 @@
 }
 
 @media (max-width: 768px) {
+  .secret-layer {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
   .cinematic-headline {
     font-size: 2.8rem;
   }
   .experience-cinematic {
     padding: 6rem 0;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

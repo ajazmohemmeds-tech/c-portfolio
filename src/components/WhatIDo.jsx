@@ -51,7 +51,7 @@ const WhatIDo = () => {
     parallaxRefs.current = Array.from(sectionRef.current?.querySelectorAll('.parallax-text') || []);
 
     const handleScroll = () => {
-      if (!sectionRef.current) return;
+      if (!sectionRef.current || window.innerWidth <= 768) return;
       const scrolled = window.scrollY;
       const sectionTop = sectionRef.current.offsetTop;
       const offset = (scrolled - sectionTop) * 0.1;

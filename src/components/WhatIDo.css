@@ -32,7 +32,7 @@
 
 .grid-line {
   height: 1px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(var(--text-primary-rgb), 0.15);
   margin-left: 100px;
   margin-right: 60px;
   transform: scaleX(0);
@@ -73,13 +73,13 @@
   color: var(--text-primary);
   margin: 0;
   text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 10px rgba(var(--text-primary-rgb), 0.1);
   pointer-events: auto;
-  transition: color 0.3s ease; /* Added color transition */
+  transition: color 0.3s ease;
 }
 
 .service-line-item:hover .premium-word {
-  color: #000; /* Turn black on hover */
+  color: var(--text-on-accent); /* Turn black on hover */
 }
 
 .premium-word-reveal {
@@ -90,7 +90,7 @@
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #000; /* Black text inside red bar */
+  color: var(--text-on-accent); /* Black text inside red bar */
   margin: 0;
   text-transform: uppercase;
   clip-path: circle(0% at 0 0); /* Managed by magnetic bar */
@@ -117,18 +117,18 @@
 /* Inversion Effect on Hover */
 .service-line-item:hover .premium-word,
 .service-line-item:hover .premium-secret {
-  color: #000000 !important; /* Pure black */
+  color: var(--text-on-accent) !important; /* Pure black */
   opacity: 1 !important;
   transform: translateX(0);
 }
 
 /* Secret Message State */
 .premium-secret {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--text-secondary);
   margin: 0;
-  max-width: 350px;
+  max-width: 450px;
   line-height: 1.4;
   opacity: 0;
   transform: translateX(20px);
@@ -139,7 +139,7 @@
 .title-container:hover + .premium-secret {
   opacity: 1;
   transform: translateX(0);
-  color: #fff;
+  color: var(--text-primary);
 }
 
 /* Reveal transition helpers */
@@ -170,6 +170,24 @@
 }
 
 @media (max-width: 768px) {
+  .what-i-do-premium {
+    padding: 6rem 1.5rem;
+  }
+  .premium-header {
+    margin-bottom: 4rem;
+  }
+  .premium-word {
+    font-size: 3.2rem;
+    font-weight: 900;
+  }
+  .premium-secret {
+    font-size: 0.95rem;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
   .premium-header, .word-content {
     padding-left: 20px;
   }

@@ -91,6 +91,12 @@
   color: black !important;
 }
 
+@media (max-width: 768px) {
+  .secret-layer {
+    display: none !important;
+  }
+}
+
 
 /* Detailed Info Section */
 .about-details {
@@ -251,5 +257,10 @@
   .company-info, 
   .exp-desc li {
     font-size: 0.95rem;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
