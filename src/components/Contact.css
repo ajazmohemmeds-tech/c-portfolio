@@ -6,7 +6,7 @@
 }
 
 .contact-header {
-  margin-bottom: 6rem;
+  margin-bottom: 2.5rem;
 }
 
 .section-label {
@@ -26,7 +26,7 @@
 }
 
 .contact-socials-section {
-  padding: 8rem 2rem 8rem 2cm;
+  padding: 1.5rem 2rem 6rem 2cm;
   border-top: none;
 }
 
@@ -170,7 +170,7 @@ a.info-value:hover {
 
 @media (max-width: 768px) {
   .contact-socials-section {
-    padding: 4rem 1.5rem 6rem 1.5rem;
+    padding: 1.5rem 1.5rem 6rem 1.5rem;
   }
   .socials-grid {
     grid-template-columns: 1fr;
